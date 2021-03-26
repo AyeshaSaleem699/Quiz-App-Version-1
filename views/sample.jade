@@ -1,0 +1,26 @@
+html 
+    head
+        title Online Quiz
+body
+    h1 Online Quiz 
+    h3= page
+    - var qusetions= questions
+    - var options= qoptions
+    - var resultData = totalResultData
+    div
+        for data in resultData
+            p= data 
+    form(action= actionUrl,method= methodType)
+        ol
+            for i,j in qusetions 
+                li= i
+                for x,y in options[j]
+                    input(name="OptionforQ"+j,type="radio",id="Option"+y,value= x)
+                    label(for="Option"+y)= x
+                hr
+                br
+        input(type="submit",value="Next")
+    h3= info
+    div#result= resultOfPreviousPage
+
+    
